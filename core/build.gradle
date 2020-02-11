@@ -1,0 +1,58 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply from: "${rootProject.rootDir}/config.gradle"
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion = '28.0.3'
+
+    defaultConfig {
+        minSdkVersion project.ext.minSdkVersion
+        targetSdkVersion project.ext.targetSdkVersion
+        versionCode project.ext.module_appVersionCode
+        versionName project.ext.module_appVersionName
+        multiDexEnabled true
+
+        manifestPlaceholders = [
+                app_name: project.ext.module_appName
+        ]
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    kapt {
+        generateStubs = true
+    }
+
+    android {
+        compileOptions {
+            sourceCompatibility 1.8
+            targetCompatibility 1.8
+        }
+    }
+
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    api project.ext.kotlinDeps
+    api project.ext.supportDeps
+    api project.ext.networkDeps
+    api project.ext.rxDeps
+    api project.ext.stethoDeps
+    api project.ext.roomDeps
+    api project.ext.okhttpDep
+    kapt project.ext.roomDep
+    kapt project.ext.databindingDeps
+    testImplementation 'junit:junit:4.12'
+}

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <!--需要的viewModel,通过mBinding.vm=mViewMode注入-->
+        <variable
+        name="vm"
+        type="yang.cehome.com.mvvmdemo.viewmodel.OnclikViewModel" />
+
+        <variable
+            name="post"
+            type="yang.cehome.com.mvvmdemo.viewmodel.PostViewModel" />
+
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".view.MainActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp">
+
+            <Button
+                android:id="@+id/bt_onclick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->vm.click()}"
+                android:text="来点一下试试" />
+
+            <TextView
+                android:id="@+id/tv_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bt_onclick"
+                android:layout_marginBottom="20dp"
+                android:text="@{vm.info}"
+                android:textSize="16sp"
+                tools:text="点了0次" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="60dp">
+
+
+            <Button
+                android:id="@+id/bt_load"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->post.loadpost()}"
+                android:text="网络获取" />
+
+            <TextView
+                android:id="@+id/tv_load"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bt_load"
+                android:layout_marginBottom="50dp"
+                android:text="@{post.postinfo}"
+                android:textSize="16sp"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>
