@@ -18,6 +18,11 @@ android {
         manifestPlaceholders = [
                 app_name: project.ext.module_appName
         ]
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments = [moduleName: project.getName()]
+//            }
+//        }
     }
     buildTypes {
         release {
@@ -54,5 +59,9 @@ dependencies {
     api project.ext.okhttpDep
     kapt project.ext.roomDep
     kapt project.ext.databindingDeps
+    
+    api project.ext.daggerDep
+    kapt project.ext.daggerProcessDep
+
     testImplementation 'junit:junit:4.12'
 }

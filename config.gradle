@@ -22,7 +22,7 @@ project.ext {
     targetSdkVersion = 28
 
     //主app
-    module_appApplicationId = 'yang.cehome.com.mvvmdemo'
+    module_appApplicationId = 'com.bruce.core.test'
     module_appVersionCode = 0001
     module_appVersionName = '1.0.0'
     module_appName = 'MVVM'
@@ -38,7 +38,8 @@ project.ext {
             rxjava_version     : '2.2.2',
             stetho_version     : '1.5.0',
             room_version       : '1.1.1',
-            okhttp_version     : '3.11.0'
+            okhttp_version     : '3.11.0',
+            dagger_version     : '2.15'
     ]
 
     //*************************类库maven地址**************************
@@ -65,6 +66,11 @@ project.ext {
     okhttpLibs = [okhttp   : "com.squareup.okhttp3:okhttp:$dependVersion.okhttp_version",
                   okhttplog: "com.squareup.okhttp3:logging-interceptor:$dependVersion.okhttp_version"]
 
+    daggerLibs = [dagger   : "com.google.dagger:dagger:$dependVersion.dagger_version",
+                  dggersupport: "com.google.dagger:dagger-android-support:$dependVersion.dagger_version"]
+    daggerProcessLibs = [daggercompiler:"com.google.dagger:dagger-compiler:$dependVersion.dagger_version",
+                  dggerprocessor: "com.google.dagger:dagger-android-processor:$dependVersion.dagger_version"]
+
     //********************项目依赖列表**********************
     kotlinDeps = [kotlin_base.values()]
     supportDeps = [supportLibs.values()]
@@ -75,4 +81,6 @@ project.ext {
     roomDeps = [roomLib.values()]
     roomDep = [room.values()]
     okhttpDep = [okhttpLibs.values()]
+    daggerDep = [daggerLibs.values()]
+    daggerProcessDep = [daggerProcessLibs.values()]
 }

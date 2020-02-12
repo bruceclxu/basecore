@@ -8,12 +8,6 @@ import com.bruce.core.BaseApplication
  *
  */
 class MyApplication : BaseApplication() {
-//    override fun onCreate() {
-//        super.onCreate()
-//        if (BuildConfig.DEBUG) {
-//            Stetho.initializeWithDefaults(this);
-//        }
-//
-//    }
+
 
 }

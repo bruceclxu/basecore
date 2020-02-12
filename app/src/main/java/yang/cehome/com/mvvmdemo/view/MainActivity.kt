@@ -3,16 +3,10 @@ package yang.cehome.com.mvvmdemo.view
 import androidx.databinding.DataBindingUtil
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.facebook.stetho.okhttp3.StethoInterceptor
-import okhttp3.OkHttpClient
-import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import retrofit2.converter.gson.GsonConverterFactory
 import yang.cehome.com.mvvmdemo.R
 import yang.cehome.com.mvvmdemo.databinding.ActivityMainBinding
 import yang.cehome.com.mvvmdemo.model.data.Onclick
 import yang.cehome.com.mvvmdemo.model.local.AppDatabase
-import yang.cehome.com.mvvmdemo.model.remote.PostService
 import yang.cehome.com.mvvmdemo.model.repository.PostRepo
 import yang.cehome.com.mvvmdemo.viewmodel.OnclikViewModel
 import yang.cehome.com.mvvmdemo.viewmodel.PostViewModel
@@ -35,18 +29,18 @@ class MainActivity : AppCompatActivity() {
         mViewMode = OnclikViewModel(onclick)
         ///binding
 
-        val client = OkHttpClient.Builder()
-                .addNetworkInterceptor(StethoInterceptor())
-                .build()
+//        val client = OkHttpClient.Builder()
+//                .addNetworkInterceptor(StethoInterceptor())
+//                .build()
 
-        val remote = Retrofit.Builder()
-                .baseUrl("http://www.kuaidi100.com")
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(client)
-                .build().create(PostService::class.java)
+//        val remote = Retrofit.Builder()
+//                .baseUrl("http://www.kuaidi100.com")
+//                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .client(client)
+//                .build().create(PostService::class.java)
         val local= AppDatabase.getInstance(applicationContext).PostDao()
-        val  repo = PostRepo(remote, local)
+        val  repo = PostRepo(local)
 
         ////ViewModel2
         mViewMode2 = PostViewModel(repo)

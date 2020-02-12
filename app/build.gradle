@@ -18,8 +18,12 @@ android {
 
         manifestPlaceholders = [
                 app_name: project.ext.module_appName
-
         ]
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath = true
+            }
+        }
     }
     buildTypes {
         release {
