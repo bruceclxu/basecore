@@ -18,6 +18,9 @@ android {
         manifestPlaceholders = [
                 app_name: project.ext.module_appName
         ]
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        
     }
     buildTypes {
         release {
@@ -56,5 +59,11 @@ dependencies {
     api project.ext.daggerDep
     kapt project.ext.daggerProcessDep
 
+    api 'com.jakewharton.rxrelay2:rxrelay:2.1.1'
+    
     testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.0.0'
+    androidTestImplementation 'androidx.test.ext:truth:1.0.0'
+    androidTestImplementation 'com.google.truth:truth:0.42'
+
 }

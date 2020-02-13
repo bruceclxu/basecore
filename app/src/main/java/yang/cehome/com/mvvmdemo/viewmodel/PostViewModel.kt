@@ -12,7 +12,6 @@ import yang.cehome.com.mvvmdemo.model.repository.PostRepo
 /**
  * @author bruce
  *	@desc  PostViewModel
- *
  */
 class PostViewModel(private val repo: PostRepo) {
     /******data******/
