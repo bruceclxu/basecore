@@ -27,18 +27,7 @@ class MainActivity : AppCompatActivity() {
         val onclick = Onclick("me", 0)
         ///ViewModel
         mViewMode = OnclikViewModel(onclick)
-        ///binding
 
-//        val client = OkHttpClient.Builder()
-//                .addNetworkInterceptor(StethoInterceptor())
-//                .build()
-
-//        val remote = Retrofit.Builder()
-//                .baseUrl("http://www.kuaidi100.com")
-//                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .client(client)
-//                .build().create(PostService::class.java)
         val local= AppDatabase.getInstance(applicationContext).PostDao()
         val  repo = PostRepo(local)
 

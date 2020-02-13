@@ -5,8 +5,8 @@ apply plugin: 'kotlin-android-extensions'
 apply from: "${rootProject.rootDir}/config.gradle"
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion = '28.0.3'
+    compileSdkVersion project.ext.compileSdkVersion
+    buildToolsVersion = project.ext.buildToolsVersion
 
     defaultConfig {
         minSdkVersion project.ext.minSdkVersion
@@ -18,11 +18,6 @@ android {
         manifestPlaceholders = [
                 app_name: project.ext.module_appName
         ]
-//        javaCompileOptions {
-//            annotationProcessorOptions {
-//                arguments = [moduleName: project.getName()]
-//            }
-//        }
     }
     buildTypes {
         release {
@@ -51,14 +46,12 @@ android {
 dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
     api project.ext.kotlinDeps
-    api project.ext.supportDeps
     api project.ext.networkDeps
     api project.ext.rxDeps
     api project.ext.stethoDeps
     api project.ext.roomDeps
     api project.ext.okhttpDep
     kapt project.ext.roomDep
-    kapt project.ext.databindingDeps
     
     api project.ext.daggerDep
     kapt project.ext.daggerProcessDep

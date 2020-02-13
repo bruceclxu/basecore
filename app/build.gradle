@@ -5,8 +5,8 @@ apply plugin: 'kotlin-android-extensions'
 apply from: "${rootProject.rootDir}/config.gradle"
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion = '28.0.3'
+    compileSdkVersion project.ext.compileSdkVersion
+    buildToolsVersion = project.ext.buildToolsVersion
     
     defaultConfig {
         minSdkVersion project.ext.minSdkVersion
@@ -52,7 +52,6 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     kapt project.ext.roomDep
-    kapt project.ext.databindingDeps
     testImplementation 'junit:junit:4.12'
     api project(path: ':core')
 }
