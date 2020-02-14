@@ -12,5 +12,6 @@ interface APIService {
     //获取快递
     @GET("/query?type=yuantong&postid=112323")
     fun getPostInfo(): Maybe<HttpResponse<ArrayList<KuaiDiResult>>>
+//    fun< T : Any> getPostInfo(): Maybe<HttpResponse<ArrayList<T>>>
 
 }

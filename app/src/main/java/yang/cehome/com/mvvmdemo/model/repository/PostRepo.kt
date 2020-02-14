@@ -1,7 +1,6 @@
 package yang.cehome.com.mvvmdemo.model.repository
 
 import com.bruce.core.base.BaseViewModel
-import com.bruce.core.network.APIService
 import com.bruce.core.network.entity.HttpResponse
 import com.bruce.core.network.entity.KuaiDiResult
 import io.reactivex.Maybe

@@ -7,6 +7,7 @@ import androidx.databinding.ViewDataBinding
 import com.bruce.core.rxbus.RxBus
 import com.bruce.core.rxbus.event.GlobalNetworkException
 import io.reactivex.disposables.Disposable
+import io.reactivex.functions.Consumer
 
 /**
  * @author Aaron
@@ -41,9 +42,9 @@ abstract class BaseActivity<T : ViewDataBinding> : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        disposable = RxBus.get().register(GlobalNetworkException::class.java) {
+        disposable = RxBus.get().register(eventType = GlobalNetworkException::class.java,onNext = Consumer {
             checkException(it.code, it.response)
-        }
+        }) 
     }
 
     override fun onPause() {
