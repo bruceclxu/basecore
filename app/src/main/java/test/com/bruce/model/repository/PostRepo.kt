@@ -1,10 +1,10 @@
-package yang.cehome.com.mvvmdemo.model.repository
+package test.com.bruce.model.repository
 
 import com.bruce.core.base.BaseViewModel
 import com.bruce.core.network.entity.HttpResponse
 import com.bruce.core.network.entity.KuaiDiResult
 import io.reactivex.Maybe
-import yang.cehome.com.mvvmdemo.model.local.dao.PostDao
+import test.com.bruce.model.local.dao.PostDao
 
 /**
  * @author bruce
@@ -22,5 +22,6 @@ class PostRepo  constructor(private val local: PostDao): BaseViewModel(){
 //           }
 
     fun getPostInfo(): Maybe<HttpResponse<ArrayList<KuaiDiResult>>> = apiService.getPostInfo()
+
 
 }

@@ -37,7 +37,9 @@ project.ext {
             stetho_version     : '1.5.0',
             room_version       : '1.1.1',
             okhttp_version     : '3.11.0',
-            dagger_version     : '2.15'
+            dagger_version     : '2.15',
+            rxrelay_version     : '2.1.1',
+            rxbinding_version     : '2.0.0'
     ]
 
     //*************************类库maven地址**************************
@@ -64,10 +66,17 @@ project.ext {
     daggerProcessLibs = [daggercompiler:"com.google.dagger:dagger-compiler:$dependVersion.dagger_version",
                   dggerprocessor: "com.google.dagger:dagger-android-processor:$dependVersion.dagger_version"]
 
+    
+    rxToolsLibs=[
+            rxrelay: "com.jakewharton.rxrelay2:rxrelay:$dependVersion.rxrelay_version",
+            rxbinding: "com.jakewharton.rxbinding2:rxbinding:$dependVersion.rxbinding_version"
+    ]
+    
     //********************项目依赖列表**********************
     kotlinDeps = [kotlin_base.values()]
     networkDeps = [network.values(), gson.values()]
     rxDeps = [rxandroid.values(), rxjava.values()]
+    rxToolsDeps = [rxToolsLibs.values()]
     stethoDeps = [stetho.values()]
     roomDeps = [roomLib.values()]
     roomDep = [room.values()]

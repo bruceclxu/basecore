@@ -1,14 +1,16 @@
-package yang.cehome.com.mvvmdemo.view
+package test.com.bruce.view
 
+import android.content.Intent
 import android.os.Bundle
 import com.bruce.core.base.BaseActivity
-import yang.cehome.com.mvvmdemo.R
-import yang.cehome.com.mvvmdemo.databinding.ActivityMainBinding
-import yang.cehome.com.mvvmdemo.model.data.Onclick
-import yang.cehome.com.mvvmdemo.model.local.AppDatabase
-import yang.cehome.com.mvvmdemo.model.repository.PostRepo
-import yang.cehome.com.mvvmdemo.viewmodel.OnclikViewModel
-import yang.cehome.com.mvvmdemo.viewmodel.PostViewModel
+import kotlinx.android.synthetic.main.activity_main.*
+import test.com.bruce.databinding.ActivityMainBinding
+import test.com.bruce.R
+import test.com.bruce.model.data.Onclick
+import test.com.bruce.model.local.AppDatabase
+import test.com.bruce.model.repository.PostRepo
+import test.com.bruce.viewmodel.OnclikViewModel
+import test.com.bruce.viewmodel.PostViewModel
 
 /**
  * MVVM 当中的一个V层 将三者联系起来
@@ -33,6 +35,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         mBinding.vm = mViewMode
         ////binding
         mBinding.post = mViewMode2
+
+        bt_start_permission.setOnClickListener { 
+            startActivity(Intent(this,PermissionTestActivity::class.java))
+        }
     }
     
     override fun getContentViewId(): Int {

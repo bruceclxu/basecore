@@ -1,4 +1,4 @@
-package yang.cehome.com.mvvmdemo
+package test.com.test
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

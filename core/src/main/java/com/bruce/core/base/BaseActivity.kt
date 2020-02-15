@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.bruce.core.rxbus.RxBus
 import com.bruce.core.rxbus.event.GlobalNetworkException
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.functions.Consumer
 
@@ -17,6 +18,7 @@ import io.reactivex.functions.Consumer
  */
 abstract class BaseActivity<T : ViewDataBinding> : AppCompatActivity() {
     lateinit var mBinding: T
+    var compositeDisposable = CompositeDisposable()
     
     private var disposable: Disposable? = null
     
@@ -50,5 +52,10 @@ abstract class BaseActivity<T : ViewDataBinding> : AppCompatActivity() {
     override fun onPause() {
         RxBus.get().unregister(disposable)
         super.onPause()
+    }
+
+    override fun onDestroy() {
+        compositeDisposable.clear() // 防止内存泄露
+        super.onDestroy()
     }
 }

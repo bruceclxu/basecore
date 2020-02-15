@@ -59,8 +59,8 @@ dependencies {
     api project.ext.daggerDep
     kapt project.ext.daggerProcessDep
 
-    api 'com.jakewharton.rxrelay2:rxrelay:2.1.1'
-    
+    api project.ext.rxToolsDeps
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.0.0'
     androidTestImplementation 'androidx.test.ext:truth:1.0.0'

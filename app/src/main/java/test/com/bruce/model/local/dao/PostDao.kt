@@ -1,4 +1,4 @@
-package yang.cehome.com.mvvmdemo.model.local.dao
+package test.com.bruce.model.local.dao
 
 
 import androidx.room.Dao

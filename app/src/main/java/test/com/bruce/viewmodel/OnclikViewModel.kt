@@ -1,7 +1,7 @@
-package yang.cehome.com.mvvmdemo.viewmodel
+package test.com.bruce.viewmodel
 
 import androidx.databinding.ObservableField
-import yang.cehome.com.mvvmdemo.model.data.Onclick
+import test.com.bruce.model.data.Onclick
 
 /**
  * @author bruce
@@ -16,6 +16,7 @@ class OnclikViewModel(val onlick: Onclick) {
     fun click() {
         onlick.count++
         info.set("\"${onlick.who}点击了${onlick.count}次\"")
+        
     }
 
 }

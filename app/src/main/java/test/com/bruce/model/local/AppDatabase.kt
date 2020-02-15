@@ -1,11 +1,11 @@
-package yang.cehome.com.mvvmdemo.model.local
+package test.com.bruce.model.local
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import yang.cehome.com.mvvmdemo.model.local.dao.PostDao
-import yang.cehome.com.mvvmdemo.model.local.dao.PostEntity
+import test.com.bruce.model.local.dao.PostDao
+import test.com.bruce.model.local.dao.PostEntity
 
 /**
  * @author bruce
@@ -22,7 +22,8 @@ abstract class AppDatabase : RoomDatabase() {
 
         fun getInstance(context: Context): AppDatabase =
                 INSTANCE ?: synchronized(this) {
-                    INSTANCE ?: buildDatabase(context).also { INSTANCE = it }
+                    INSTANCE
+                            ?: buildDatabase(context).also { INSTANCE = it }
                 }
 
         private fun buildDatabase(context: Context) =

@@ -1,4 +1,4 @@
-package yang.cehome.com.mvvmdemo.model.data
+package test.com.bruce.model.data
 
 /**
  * @author bruce

@@ -1,13 +1,11 @@
-package yang.cehome.com.mvvmdemo.viewmodel
+package test.com.bruce.viewmodel
 
 import androidx.databinding.ObservableField
 import com.bruce.core.network.entity.HttpResponse
 import com.bruce.core.network.entity.KuaiDiResult
-import io.reactivex.Maybe
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import yang.cehome.com.mvvmdemo.model.local.dao.PostEntity
-import yang.cehome.com.mvvmdemo.model.repository.PostRepo
+import test.com.bruce.model.repository.PostRepo
 
 /**
  * @author bruce

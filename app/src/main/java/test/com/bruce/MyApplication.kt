@@ -1,4 +1,4 @@
-package yang.cehome.com.mvvmdemo
+package test.com.bruce
 
 import com.bruce.core.BaseApplication
 
