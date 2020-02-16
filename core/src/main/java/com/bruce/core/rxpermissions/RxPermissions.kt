@@ -25,7 +25,7 @@ class RxPermissions {
     }
 
     constructor(fragment: Fragment) {
-        mRxPermissionsFragment = getLazySingleton(fragment.getChildFragmentManager())
+        mRxPermissionsFragment = getLazySingleton(fragment.childFragmentManager)
     }
 
     
@@ -103,7 +103,7 @@ class RxPermissions {
      * If one or several permissions have never been requested, invoke the related framework method
      * to ask the user if he allows the permissions.
      */
-    fun <T> ensureEach(vararg permissions: String): ObservableTransformer<T, Permission> {
+    private fun <T> ensureEach(vararg permissions: String): ObservableTransformer<T, Permission> {
         return ObservableTransformer { o -> request(o, *permissions) }
     }
 
@@ -115,7 +115,7 @@ class RxPermissions {
      * If one or several permissions have never been requested, invoke the related framework method
      * to ask the user if he allows the permissions.
      */
-    fun <T> ensureEachCombined(vararg permissions: String): ObservableTransformer<T, Permission> {
+    private fun <T> ensureEachCombined(vararg permissions: String): ObservableTransformer<T, Permission> {
         return ObservableTransformer { o ->
             request(o, *permissions)
                     .buffer(permissions.size)
@@ -152,7 +152,7 @@ class RxPermissions {
     }
 
     private fun request(trigger: Observable<*>, vararg permissions: String): Observable<Permission> {
-        require(!(permissions == null || permissions.size == 0)) { "RxPermissions.request/requestEach requires at least one input permission" }
+        require(!(permissions == null || permissions.isEmpty())) { "RxPermissions.request/requestEach requires at least one input permission" }
         return oneOf(trigger, pending(*permissions))
                 .flatMap { 
                     requestImplementation(*permissions) 
@@ -182,7 +182,7 @@ class RxPermissions {
 // At the end, the observables are combined to have a unique response.
         for (permission in permissions) {
             mRxPermissionsFragment.get().log("Requesting permission $permission")
-            if (isGranted(permission)) { // Already granted, or not Android M
+            if (permission.isGranted()) { // Already granted, or not Android M
 // Return a granted Permission object.
                 list.add(Observable.just(Permission(permission, true, false)))
                 continue
@@ -231,7 +231,7 @@ class RxPermissions {
     @TargetApi(Build.VERSION_CODES.M)
     private fun shouldShowRequestPermissionRationaleImplementation(activity: Activity, vararg permissions: String): Boolean {
         for (p in permissions) {
-            if (!isGranted(p) && !activity.shouldShowRequestPermissionRationale(p)) {
+            if (!p.isGranted() && !activity.shouldShowRequestPermissionRationale(p)) {
                 return false
             }
         }
@@ -250,8 +250,8 @@ class RxPermissions {
      *
      * Always true if SDK &lt; 23.
      */
-    fun isGranted(permission: String?): Boolean {
-        return !isMarshmallow || mRxPermissionsFragment.get().isGranted(permission)
+    private fun String?.isGranted(): Boolean {
+        return !isMarshmallow || mRxPermissionsFragment.get().isGranted(this)
     }
 
     /**
@@ -260,11 +260,11 @@ class RxPermissions {
      *
      * Always false if SDK &lt; 23.
      */
-    fun isRevoked(permission: String?): Boolean {
+    private fun isRevoked(permission: String?): Boolean {
         return isMarshmallow && mRxPermissionsFragment.get().isRevoked(permission)
     }
 
-    val isMarshmallow: Boolean
+    private val isMarshmallow: Boolean
         get() = Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
 
     fun onRequestPermissionsResult(permissions: Array<String>, grantResults: IntArray?) {

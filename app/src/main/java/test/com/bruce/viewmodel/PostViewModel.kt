@@ -1,33 +1,38 @@
 package test.com.bruce.viewmodel
 
-import androidx.databinding.ObservableField
-import com.bruce.core.network.entity.HttpResponse
+import androidx.lifecycle.MutableLiveData
 import com.bruce.core.network.entity.KuaiDiResult
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
-import test.com.bruce.model.repository.PostRepo
+import com.bruce.core.repository.TestKuaiDi
+import io.reactivex.observers.ResourceMaybeObserver
 
 /**
  * @author bruce
  *	@desc  PostViewModel
  */
-class PostViewModel(private val repo: PostRepo) {
+class PostViewModel{
+    
+     var testKuaiDi = TestKuaiDi()
+    
     /******data******/
-    val postinfo = ObservableField<String>()
+    val postinfo = MutableLiveData<String>()
 
     /******binding******/
     fun loadpost() {
 
-        repo.getPostInfo()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({response:HttpResponse<ArrayList<KuaiDiResult>>->
-                    postinfo.set(response?.data?.let { 
-                        it[0]?.context!! 
-                    })
-                },{t: Throwable? ->
-                    t?.printStackTrace()
-                    postinfo.set(t?.message ?: "error")
-                })
+        testKuaiDi.execute(object : ResourceMaybeObserver<ArrayList<KuaiDiResult>>() {
+            override fun onSuccess(it: ArrayList<KuaiDiResult>) {
+                postinfo.postValue(it[0].context!!)
+            }
+
+            override fun onError(e: Throwable) {
+                e?.printStackTrace()
+                postinfo.postValue(e?.message ?: "error")
+            }
+
+            override fun onComplete() {
+            }
+
+        })
+        
     }
 }
