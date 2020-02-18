@@ -27,8 +27,8 @@ class PostViewModel @Inject constructor(){
             }
 
             override fun onError(e: Throwable) {
-                e?.printStackTrace()
-                postinfo.postValue(e?.message ?: "error")
+                e.printStackTrace()
+                postinfo.postValue(e.message ?: "error")
             }
 
             override fun onComplete() {
