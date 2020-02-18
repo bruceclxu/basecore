@@ -1,4 +1,4 @@
-package com.bruce.core.network.entity
+package com.bruce.data.httpresponse
 
 data class KuaiDiResult(
         var time: String? = null,

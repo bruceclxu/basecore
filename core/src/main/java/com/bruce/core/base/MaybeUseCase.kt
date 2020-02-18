@@ -26,7 +26,7 @@ abstract class MaybeUseCase<Params, T> {
      * by [.buildUseCaseObservable] ()} method.
      * @param params Parameters (Optional) used to build/execute this use case.
      */
-    fun execute(observer: ResourceMaybeObserver<T>?, params: Params?=null): ResourceMaybeObserver<T>? {
+    fun execute(observer: CoreResourceMaybeObserver<T>?, params: Params?=null): ResourceMaybeObserver<T>? {
         var maybe =  buildUseCaseObservable(params)
                 ?.subscribeOn(scheduler)
                 ?.observeOn(schedulerObserve)

@@ -9,7 +9,6 @@ import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
-import okhttp3.OkHttpClient
 import javax.inject.Singleton
 
 /**
@@ -24,9 +23,7 @@ import javax.inject.Singleton
 interface CoreComponent : AndroidInjector<BaseApplication> {
 
     fun apiService(): APIService
-
-    fun okHttpClient(): OkHttpClient
-
+    
     /**
      * build() 和 seedInstance() 方法已经在 AndroidInjector.Builder 抽象类中定义了，所以我们的 Builder 类可以通过继承 AndroidInjection.Builder<Application> 来去掉上面代码中 application() 和 build() 这两个方法。
      * 同样的，AndroidInjector 接口中已经有 inject() 方法了。所以我们可以通过继承 AndroidInjector<Application> 接口（接口是可以继承接口的）来删除 inject() 方法。

@@ -1,6 +1,8 @@
-package ccom.bruce.core.network.interceptor
+package com.bruce.core.network.interceptor
 
 import com.bruce.core.config.Config
+import com.bruce.core.rxbus.RxBus
+import com.bruce.core.rxbus.event.GlobalNetworkException
 import okhttp3.Interceptor
 import okhttp3.Response
 import okhttp3.ResponseBody
@@ -26,7 +28,7 @@ class NetworkExceptionInterceptor : Interceptor {
 //                val code = json.optInt("code")
                 val code = json.optString("code")
                 if (code != Config.NETWORK_RESPONSE_OK) {
-//                    RxBus.get().post(GlobalNetworkException(code, bodyString))
+                    RxBus.get().post(GlobalNetworkException(code, bodyString))
                 }
             }
             // 深坑！

@@ -1,7 +1,7 @@
 package com.bruce.core.network
 
 import com.bruce.core.network.entity.HttpResponse
-import com.bruce.core.network.entity.KuaiDiResult
+import com.bruce.data.httpresponse.KuaiDiResult
 import io.reactivex.Maybe
 import retrofit2.http.GET
 
@@ -12,6 +12,5 @@ interface APIService {
     //获取快递
     @GET("/query?type=yuantong&postid=112323")
     fun getPostInfo(): Maybe<HttpResponse<ArrayList<KuaiDiResult>>>
-//    fun< T : Any> getPostInfo(): Maybe<HttpResponse<ArrayList<T>>>
 
 }

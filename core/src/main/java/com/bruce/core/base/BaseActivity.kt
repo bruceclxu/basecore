@@ -33,7 +33,7 @@ abstract class BaseActivity : AppCompatActivity() {
     
     protected abstract fun getContentViewId(): Int
 
-    protected open var checkException: (Int, String) -> Unit = { code, _ ->
+    protected open var checkException: (String, String) -> Unit = { code, _ ->
         when (code) {
 //            response.length
         }

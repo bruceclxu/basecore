@@ -18,16 +18,10 @@ class MainActivity : BaseActivity() {
     
     @Inject
     lateinit var mViewMode2: PostViewModel
-
-//    @Inject
-//    lateinit var  postinfo : MutableLiveData<String>
-
+    
     override fun onCreate(savedInstanceState: Bundle?) {
-//        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
-
         setBinding()
-
     }
     
     private fun setBinding(){
@@ -42,10 +36,7 @@ class MainActivity : BaseActivity() {
             tv_load.text = it
         })
         
-//        postinfo.postValue("44444")
-        
     }
-    
     
     override fun getContentViewId(): Int {
         return R.layout.activity_main

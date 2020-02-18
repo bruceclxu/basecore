@@ -5,5 +5,5 @@ package com.bruce.core.rxbus.event
  * @Author bruce
  * @Version
  */
-class GlobalNetworkException(val code: Int, val response: String)
+class GlobalNetworkException(val code: String, val response: String)
 

@@ -57,10 +57,10 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     kapt project.ext.roomDep
 
-    api project.ext.daggerDep
+    implementation project.ext.daggerDep
     kapt project.ext.daggerProcessDep
 
-    api project(path: ':core')
+    implementation project(path: ':core')
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.0.0'

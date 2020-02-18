@@ -2,7 +2,7 @@ package com.bruce.core.di.moudle
 
 
 import ccom.bruce.core.network.interceptor.HeaderInterceptor
-import ccom.bruce.core.network.interceptor.NetworkExceptionInterceptor
+import com.bruce.core.network.interceptor.NetworkExceptionInterceptor
 import com.bruce.core.BuildConfig
 import com.bruce.core.network.APIService
 import com.bruce.core.network.adapter.GsonStringNullAdapter
@@ -18,9 +18,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
-
 @Module
-class HttpModule {
+open class HttpModule {
 
     @Singleton
     @Provides
@@ -32,11 +31,11 @@ class HttpModule {
 
     @Singleton
     @Provides
-    internal fun provideZhihuService(retrofit: Retrofit): APIService = retrofit.create<APIService>(APIService::class.java)
+    internal fun provideService(retrofit: Retrofit): APIService = retrofit.create<APIService>(APIService::class.java)
 
     @Singleton
     @Provides
-    internal fun provideZhihuRetrofit(builder: Retrofit.Builder, client: OkHttpClient): Retrofit = builder
+    internal fun provideRetrofit(builder: Retrofit.Builder, client: OkHttpClient): Retrofit = builder
             .baseUrl(APIService.API_BASE_SERVER_URL)
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder()
                     .registerTypeAdapter(String::class.java, GsonStringNullAdapter()) //添加 gson null值String的处理，如果是null，将值改为""

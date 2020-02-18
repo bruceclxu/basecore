@@ -152,7 +152,7 @@ class RxPermissions {
     }
 
     private fun request(trigger: Observable<*>, vararg permissions: String): Observable<Permission> {
-        require(!(permissions == null || permissions.isEmpty())) { "RxPermissions.request/requestEach requires at least one input permission" }
+        require(permissions.isNotEmpty()) { "RxPermissions.request/requestEach requires at least one input permission" }
         return oneOf(trigger, pending(*permissions))
                 .flatMap { 
                     requestImplementation(*permissions) 
@@ -240,7 +240,7 @@ class RxPermissions {
 
     @TargetApi(Build.VERSION_CODES.M)
     fun requestPermissionsFromFragment(permissions: Array<String?>?) {
-        mRxPermissionsFragment.get().log("requestPermissionsFromFragment " + TextUtils.join(", ", permissions))
+        mRxPermissionsFragment.get().log("requestPermissionsFromFragment " + TextUtils.join(", ", permissions!!))
         mRxPermissionsFragment.get().requestPermissions(permissions!!)
     }
 

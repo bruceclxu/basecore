@@ -18,9 +18,6 @@ class MyApplication : BaseApplication() {
                 .coreComponent(coreComponent)
                 .build()
                 .inject(this)
-//        DaggerCoreComponent
-//                .builder()
-//                .build()
-//                .inject(this)
+
     }
 }
