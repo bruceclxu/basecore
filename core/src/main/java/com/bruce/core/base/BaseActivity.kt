@@ -4,24 +4,22 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.bruce.core.rxbus.RxBus
 import com.bruce.core.rxbus.event.GlobalNetworkException
+import dagger.android.AndroidInjection
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.functions.Consumer
 
 /**
- * @author Aaron
- * @email aaron@magicwindow.cn
- * @date 18/03/2018 22:15
- * @description
+ * @author bruce
  */
 abstract class BaseActivity : AppCompatActivity() {
+
     var compositeDisposable = CompositeDisposable()
     
     private var disposable: Disposable? = null
     
     override fun onCreate(savedInstanceState: Bundle?) {
-//        AndroidInjection.inject(this)
-
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         initView()
     }

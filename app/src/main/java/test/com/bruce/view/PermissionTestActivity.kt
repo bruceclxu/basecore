@@ -3,11 +3,14 @@ package test.com.bruce.view
 import android.Manifest
 import android.os.Bundle
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import com.bruce.core.base.BaseActivity
 import com.bruce.core.rxpermissions.RxPermissions
 import com.jakewharton.rxbinding3.view.clicks
 import kotlinx.android.synthetic.main.activity_permission_test.*
 import test.com.bruce.R
+import test.com.bruce.viewmodel.PostViewModel
+import javax.inject.Inject
 
 /**
  * MVVM 当中的一个V层 将三者联系起来
@@ -45,6 +48,7 @@ class PermissionTestActivity : BaseActivity() {
                     }
         )
 
+        
 
     }
     

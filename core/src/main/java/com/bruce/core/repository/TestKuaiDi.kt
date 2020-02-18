@@ -4,8 +4,9 @@ import com.bruce.core.BaseApplication
 import com.bruce.core.base.MaybeUseCase
 import com.bruce.core.network.entity.KuaiDiResult
 import io.reactivex.Maybe
+import javax.inject.Inject
 
-class TestKuaiDi :MaybeUseCase<Any,ArrayList<KuaiDiResult>>(){
+class TestKuaiDi @Inject constructor():MaybeUseCase<Any,ArrayList<KuaiDiResult>>(){
     
     var service = BaseApplication.coreComponent.apiService()
     

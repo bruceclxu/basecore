@@ -14,12 +14,15 @@ import kotlin.properties.Delegates
  *	@desc
  */
 open class BaseApplication : DaggerApplication() {
-    override fun onCreate() {
-        super.onCreate()
-        if (BuildConfig.DEBUG) {
-            Stetho.initializeWithDefaults(this);
-        }
-    }
+//    override fun onCreate() {
+//
+//        super.onCreate()
+//        DaggerCoreComponent.builder().build().inject(this)
+//
+//        if (BuildConfig.DEBUG) {
+//            Stetho.initializeWithDefaults(this);
+//        }
+//    }
     companion object {
 
         lateinit var coreComponent: CoreComponent
@@ -28,15 +31,10 @@ open class BaseApplication : DaggerApplication() {
         var instance: BaseApplication by Delegates.notNull()
             private set
 
-//        init {
-//            //设置全局的Header,Footer构建器
-//            SmartRefreshLayout.setDefaultRefreshHeaderCreater { context, layout -> PullRefreshHeader(context) }
-//            SmartRefreshLayout.setDefaultRefreshFooterCreater { context, layout -> ClassicsFooter(context).setDrawableSize(20f) }
-//        }
     }
     
-    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        coreComponent = DaggerCoreComponent.builder().create(this) as CoreComponent
+    override fun applicationInjector(): AndroidInjector<out DaggerApplication>? {
+        coreComponent = DaggerCoreComponent.builder().application(this)?.build()!!
         return coreComponent    
     }
 }

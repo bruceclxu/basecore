@@ -2,6 +2,7 @@ package com.bruce.core.di.moudle
 
 import android.app.Application
 import com.bruce.core.BaseApplication
+import com.bruce.core.base.MaybeUseCase
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -17,8 +18,5 @@ class AppModule {
     @Singleton
     @Provides
     fun provideContext(): Application = BaseApplication.instance
-
-//    @Singleton
-//    @Provides
-//    fun provideSPHelper(application: Application): SPHelper = SPHelper.create(application)
+    
 }
