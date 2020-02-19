@@ -11,7 +11,7 @@ class TestKuaiDi @Inject constructor():MaybeUseCase<Any,ArrayList<KuaiDiResult>>
     @Inject
     lateinit var service: APIService
     
-    override fun buildUseCaseObservable(params: Any?): Maybe<ArrayList<KuaiDiResult>>? {
-        return service.getPostInfo().map { it.data }
-    }
+    override fun buildUseCaseObservable(params: Any?): Maybe<ArrayList<KuaiDiResult>>? = 
+            service.getPostInfo().map { it.data }
+    
 }

@@ -30,14 +30,13 @@ class MainActivity : BaseActivity<PostViewModel>() {
         }     
     }
     
-    private fun setBinding(){
+    private fun setBinding()=
         viewModel.postinfo.observe(this, Observer{
             tv_load.text = it
         })
-    }
     
-    override fun getContentViewId(): Int {
-        return R.layout.activity_main
-    }
+    
+    override fun getContentViewId(): Int = R.layout.activity_main
+    
     
 }

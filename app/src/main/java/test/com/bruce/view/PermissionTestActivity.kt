@@ -47,8 +47,7 @@ class PermissionTestActivity : BaseActivity<BaseViewModel>() {
         
     }
     
-    override fun getContentViewId(): Int {
-        return R.layout.activity_permission_test
-    }
+    override fun getContentViewId(): Int = R.layout.activity_permission_test
+    
     
 }
