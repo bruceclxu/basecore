@@ -5,6 +5,7 @@ import android.app.Activity
 import android.os.Build
 import android.text.TextUtils
 import androidx.annotation.VisibleForTesting
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
@@ -14,6 +15,7 @@ import io.reactivex.ObservableTransformer
 import io.reactivex.functions.Function
 import io.reactivex.subjects.PublishSubject
 import java.util.*
+import javax.inject.Inject
 
 
 class RxPermissions {
@@ -23,7 +25,7 @@ class RxPermissions {
     constructor(activity: FragmentActivity) {
         mRxPermissionsFragment = getLazySingleton(activity.supportFragmentManager)
     }
-
+    
     constructor(fragment: Fragment) {
         mRxPermissionsFragment = getLazySingleton(fragment.childFragmentManager)
     }

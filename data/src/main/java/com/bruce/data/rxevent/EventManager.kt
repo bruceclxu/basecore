@@ -1,4 +1,4 @@
-package com.bruce.core.rxbus.event
+package com.bruce.data.rxevent
 
 /**
  * @Description

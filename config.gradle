@@ -38,7 +38,7 @@ project.ext {
             stetho_version     : '1.5.0',
             room_version       : '1.1.1',
             okhttp_version     : '3.11.0',
-            dagger_version     : '2.15',
+            dagger_version     : '2.26',
             rxrelay_version     : '2.1.1',
             rxbinding_version     : '3.1.0'
             

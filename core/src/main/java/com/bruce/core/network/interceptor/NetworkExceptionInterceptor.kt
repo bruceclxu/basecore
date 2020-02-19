@@ -2,7 +2,7 @@ package com.bruce.core.network.interceptor
 
 import com.bruce.core.config.Config
 import com.bruce.core.rxbus.RxBus
-import com.bruce.core.rxbus.event.GlobalNetworkException
+import com.bruce.data.rxevent.GlobalNetworkException
 import okhttp3.Interceptor
 import okhttp3.Response
 import okhttp3.ResponseBody

@@ -1,25 +1,28 @@
 package com.bruce.core.base
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.bruce.core.rxbus.RxBus
-import com.bruce.core.rxbus.event.GlobalNetworkException
-import dagger.android.AndroidInjection
+import com.bruce.data.rxevent.GlobalNetworkException
+import dagger.android.support.DaggerAppCompatActivity
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.functions.Consumer
+import javax.inject.Inject
 
 /**
  * @author bruce
  */
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity<T:BaseViewModel> : DaggerAppCompatActivity() {
 
+    //默认一个 Activity 对应一个viewmodel，如果有多个的场景需要考虑的话
+    @Inject
+    lateinit var viewModel: T 
+    
     var compositeDisposable = CompositeDisposable()
     
     private var disposable: Disposable? = null
     
     override fun onCreate(savedInstanceState: Bundle?) {
-        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         initView()
     }

@@ -3,6 +3,7 @@ package test.com.bruce.viewmodel
 import androidx.lifecycle.MutableLiveData
 import com.bruce.core.base.BaseViewModel
 import com.bruce.core.base.CoreResourceMaybeObserver
+import com.bruce.data.httpresponse.KuaiDiResult
 import test.com.bruce.apprepository.TestKuaiDi
 import javax.inject.Inject
 
@@ -21,8 +22,8 @@ class PostViewModel @Inject constructor(): BaseViewModel() {
 
     /******binding******/
     fun loadpost() {
-        testKuaiDi.execute(object :CoreResourceMaybeObserver<ArrayList<com.bruce.data.httpresponse.KuaiDiResult>>(){
-            override fun onSuccess(t: ArrayList<com.bruce.data.httpresponse.KuaiDiResult>) {
+        testKuaiDi.execute(object :CoreResourceMaybeObserver<ArrayList<KuaiDiResult>>(){
+            override fun onSuccess(t: ArrayList<KuaiDiResult>) {
                 postinfo.postValue(t[0].context!!)
             }
         })

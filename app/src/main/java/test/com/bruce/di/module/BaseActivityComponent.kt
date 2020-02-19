@@ -1,6 +1,7 @@
 package test.com.bruce.di.module
 
 import com.bruce.core.base.BaseActivity
+import com.bruce.core.base.BaseViewModel
 import dagger.Subcomponent
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
@@ -10,9 +11,9 @@ import dagger.android.AndroidInjector
  * 不要在每个Activity 中建立一个ActivitySubComponent，麻烦而且重复的无聊代码
  **/
 @Subcomponent(modules = [(AndroidInjectionModule::class)])
-interface BaseActivityComponent : AndroidInjector<BaseActivity> {
+interface BaseActivityComponent : AndroidInjector<BaseActivity<BaseViewModel>> {
 
     @Subcomponent.Builder
-    abstract class Builder : AndroidInjector.Builder<BaseActivity>()
+    abstract class Builder : AndroidInjector.Builder<BaseActivity<BaseViewModel>>()
 
 }
