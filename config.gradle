@@ -62,8 +62,7 @@ project.ext {
                room_rxjave2: "android.arch.persistence.room:rxjava2:$dependVersion.room_version",]
     room = [room: "android.arch.persistence.room:compiler:$dependVersion.room_version"]
 
-    okhttpLibs = [okhttp   : "com.squareup.okhttp3:okhttp:$dependVersion.okhttp_version",
-                  okhttplog: "com.squareup.okhttp3:logging-interceptor:$dependVersion.okhttp_version"]
+    okhttpLibs = [okhttp   : "com.squareup.okhttp3:okhttp:$dependVersion.okhttp_version"]
 
     daggerLibs = [dagger   : "com.google.dagger:dagger:$dependVersion.dagger_version",
                   dggersupport: "com.google.dagger:dagger-android-support:$dependVersion.dagger_version"]

@@ -13,4 +13,7 @@ interface APIService {
     @GET("/query?type=yuantong&postid=112323")
     fun getPostInfo(): Maybe<HttpResponse<ArrayList<KuaiDiResult>>>
 
+    @GET("/query?type=yuantong&postid=112323")
+    fun< T : Any> getPostInfo2(): Maybe<HttpResponse<ArrayList<T>>>
+
 }

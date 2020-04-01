@@ -1,12 +1,12 @@
 package test.com.bruce.di.component
 
-//import test.com.bruce.di.module.FragmentBindingModule
 import com.bruce.core.BaseApplication
 import com.bruce.core.di.component.CoreComponent
 import com.bruce.core.di.scope.AppScope
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule
 import test.com.bruce.di.module.ActivityBindingModule
+import test.com.bruce.di.module.FragmentBindingModule
 import test.com.bruce.di.providemodule.ProviderOtherModule
 
 /**
@@ -21,7 +21,7 @@ import test.com.bruce.di.providemodule.ProviderOtherModule
         dependencies = [CoreComponent::class],
         modules = [
             ActivityBindingModule::class,
-//            FragmentBindingModule::class,
+            FragmentBindingModule::class,
             AndroidSupportInjectionModule::class,
             ProviderOtherModule::class])
 interface AppComponent {

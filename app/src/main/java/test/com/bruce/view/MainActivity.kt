@@ -37,6 +37,8 @@ class MainActivity : BaseActivity<PostViewModel>() {
     
     
     override fun getContentViewId(): Int = R.layout.activity_main
-    
+
+    override fun initView() {
+    }
     
 }
