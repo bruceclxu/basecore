@@ -9,6 +9,8 @@ import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
+import test.com.bruce.di.module.BaseActivityBindingModule
+import test.com.bruce.di.module.BaseActivityComponent
 import javax.inject.Singleton
 
 /**
@@ -19,7 +21,10 @@ import javax.inject.Singleton
  * @Version
  */
 @Singleton
-@Component(modules = [AppModule::class, HttpModule::class, AndroidSupportInjectionModule::class])
+@Component(modules = [AppModule::class,
+    HttpModule::class,
+    AndroidSupportInjectionModule::class,
+    BaseActivityBindingModule::class])
 interface CoreComponent : AndroidInjector<BaseApplication> {
 
     fun apiService(): APIService

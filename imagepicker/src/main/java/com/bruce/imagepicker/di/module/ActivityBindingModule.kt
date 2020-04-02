@@ -1,6 +1,6 @@
 package test.com.bruce.di.module
 
-import com.bruce.imagepicker.MainActivity
+import com.bruce.imagepicker.ui.MainActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

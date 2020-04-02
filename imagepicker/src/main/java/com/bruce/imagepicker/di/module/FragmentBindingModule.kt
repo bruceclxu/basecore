@@ -2,7 +2,7 @@ package test.com.bruce.di.module
 
 
 import com.bruce.core.di.scope.FragmentScope
-import com.bruce.imagepicker.ImagePickerFragment
+import com.bruce.imagepicker.ui.ImagePickerFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

@@ -61,6 +61,13 @@ dependencies {
 
     api project.ext.rxToolsDeps
 
+
+
+
+//    implementation "org.kodein.di:kodein-di-core-jvm:6.5.1"
+//    implementation "org.kodein.di:kodein-di-generic-jvm:6.5.1"
+//    implementation "org.kodein.di:kodein-di-framework-android-x:6.5.1"
+    
     
     implementation 'com.trello.rxlifecycle3:rxlifecycle:3.1.0'
     implementation 'com.trello.rxlifecycle3:rxlifecycle-android:3.1.0'

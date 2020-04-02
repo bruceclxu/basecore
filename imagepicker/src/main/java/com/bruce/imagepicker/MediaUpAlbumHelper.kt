@@ -1,5 +1,6 @@
 package com.bruce.imagepicker
 
+import android.content.Context
 import android.content.ContextWrapper
 import android.provider.ContactsContract
 import android.provider.MediaStore
@@ -17,9 +18,9 @@ object MediaUpAlbumHelper {
     private var gson: Gson? = null
 
 
-    fun queryImagesAndVideosFromExternal(contextWrapper: ContextWrapper): List<ImageModel>{
-        var images = queryImagesFromExternal(contextWrapper)
-        var videos = queryVideosFromExternal(contextWrapper)
+    fun queryImagesAndVideosFromExternal(context: Context): List<ImageModel>{
+        var images = queryImagesFromExternal(context)
+        var videos = queryVideosFromExternal(context)
         var list = ArrayList<ImageModel>()
         list.addAll(images)
         list.addAll(videos)
@@ -34,9 +35,9 @@ object MediaUpAlbumHelper {
      * @param contextWrapper
      * @return
      */
-    private fun queryImagesFromExternal(contextWrapper: ContextWrapper): List<ImageModel> {
+    private fun queryImagesFromExternal(context: Context): List<ImageModel> {
         val imageModelList: MutableList<ImageModel> = ArrayList()
-        val cursor = contextWrapper.contentResolver.query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, null, null, null, null)
+        val cursor = context.contentResolver.query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, null, null, null, null)
         if (cursor != null) {
             gson = Gson()
             while (cursor.moveToNext()) {
@@ -67,9 +68,9 @@ object MediaUpAlbumHelper {
      * @param contextWrapper
      * @return
      */
-    private fun queryVideosFromExternal(contextWrapper: ContextWrapper): List<ImageModel> {
+    private fun queryVideosFromExternal(context: Context): List<ImageModel> {
         val imageModelList: MutableList<ImageModel> = ArrayList()
-        val cursor = contextWrapper.contentResolver.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, null, null, null, null)
+        val cursor = context.contentResolver.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, null, null, null, null)
         if (cursor != null) {
             gson = Gson()
             while (cursor.moveToNext()) {

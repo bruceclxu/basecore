@@ -20,11 +20,7 @@ class ImageSelectorAdapter : RecyclerView.Adapter<ImageSelectorAdapter.Holder>()
     private var mData: List<ImageModel>? = ArrayList()
     private var listener: ItemClickListener? = null
     private var haveSelected = 0
-    private var selectList: ArrayList<ImageModel>? = ArrayList() // 选中的图片一次顺序放入
-        get() {
-            return field
-        }
-
+    var selectList: ArrayList<ImageModel>? = ArrayList() // 选中的图片一次顺序放入
     var data: List<ImageModel>?
         get() = mData
         set(data) {

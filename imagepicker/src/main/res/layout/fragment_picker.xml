@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="50dp"
-    android:background="@color/colorAccent"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/bt_getpic"
+    <!--    <RelativeLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="200dp"-->
+    <!--        tools:context=".MainActivity"/>-->
+    <RelativeLayout
+        android:id="@+id/content"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="获取图片" />
+        android:layout_height="match_parent"
+        tools:context=".ui.MainActivity">
+        <Button
+            android:id="@+id/bt_complete"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="完成"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
 </LinearLayout>
