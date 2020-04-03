@@ -22,7 +22,10 @@ class MainActivity : BaseActivity<PostViewModel>() {
     }
     
     private fun initListener(){
-        compositeDisposable += bt_load.clicks().subscribe {
+        compositeDisposable += bt_load_live.clicks().subscribe {
+            viewModel.loadpost2(this)
+        }
+        compositeDisposable += bt_load_rx.clicks().subscribe {
             viewModel.loadpost()
         }
         compositeDisposable += bt_start_permission.clicks().subscribe {

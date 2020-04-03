@@ -1,8 +1,6 @@
-package test.com.bruce.di.module
+package com.bruce.core.di.moudle
 
 import dagger.Module
 
 @Module(subcomponents = [(BaseActivityComponent::class)])
-abstract class BaseActivityBindingModule {
-    
-}
+abstract class BaseActivityBindingModule 

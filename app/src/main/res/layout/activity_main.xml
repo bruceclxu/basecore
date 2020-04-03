@@ -34,18 +34,24 @@
         android:layout_marginLeft="50dp"
         android:layout_marginTop="20dp">
 
-
         <Button
-            android:id="@+id/bt_load"
+            android:id="@+id/bt_load_rx"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="网络获取" />
+            android:text="网络获取RXjava" />
+        
+        <Button
+            android:id="@+id/bt_load_live"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bt_load_rx"
+            android:text="网络获取LiveData" />
 
         <TextView
             android:id="@+id/tv_load"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/bt_load"
+            android:layout_below="@+id/bt_load_live"
             android:layout_marginBottom="50dp"
             android:textSize="16sp" />
 

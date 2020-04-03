@@ -3,14 +3,13 @@ package com.bruce.core.di.component
 import android.app.Application
 import com.bruce.core.BaseApplication
 import com.bruce.core.di.moudle.AppModule
+import com.bruce.core.di.moudle.BaseActivityBindingModule
 import com.bruce.core.di.moudle.HttpModule
 import com.bruce.core.network.APIService
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
-import test.com.bruce.di.module.BaseActivityBindingModule
-import test.com.bruce.di.module.BaseActivityComponent
 import javax.inject.Singleton
 
 /**

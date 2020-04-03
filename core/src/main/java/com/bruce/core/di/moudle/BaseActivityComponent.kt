@@ -1,4 +1,4 @@
-package test.com.bruce.di.module
+package com.bruce.core.di.moudle
 
 import com.bruce.core.base.BaseActivity
 import com.bruce.core.base.BaseViewModel

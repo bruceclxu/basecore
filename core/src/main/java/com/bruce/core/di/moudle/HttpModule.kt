@@ -6,6 +6,7 @@ import com.bruce.core.network.interceptor.NetworkExceptionInterceptor
 import com.bruce.core.BuildConfig
 import com.bruce.core.network.APIService
 import com.bruce.core.network.adapter.GsonStringNullAdapter
+import com.bruce.core.network.factory.LiveDataCallAdapterFactory
 import com.bruce.core.network.interceptor.LoggingInterceptor
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -31,7 +32,7 @@ open class HttpModule {
 
     @Singleton
     @Provides
-    internal fun provideService(retrofit: Retrofit): APIService = retrofit.create<APIService>(APIService::class.java)
+    internal fun provideService(retrofit: Retrofit): APIService = retrofit.create(APIService::class.java)
 
     @Singleton
     @Provides
@@ -40,6 +41,7 @@ open class HttpModule {
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder()
                     .registerTypeAdapter(String::class.java, GsonStringNullAdapter()) //添加 gson null值String的处理，如果是null，将值改为""
                     .create()))
+            .addCallAdapterFactory(LiveDataCallAdapterFactory())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
             .client(client)
             .build()

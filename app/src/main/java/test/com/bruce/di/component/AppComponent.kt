@@ -5,7 +5,9 @@ import com.bruce.core.BaseApplication
 import com.bruce.core.di.component.CoreComponent
 import com.bruce.core.di.scope.AppScope
 import dagger.Component
+import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
+import test.com.bruce.MyApplication
 import test.com.bruce.di.module.ActivityBindingModule
 import test.com.bruce.di.providemodule.ProviderOtherModule
 
