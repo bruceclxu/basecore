@@ -1,13 +1,13 @@
-package test.com.bruce.di.component
+package com.bruce.imagepicker.di.component
 
 import com.bruce.core.BaseApplication
 import com.bruce.core.di.component.CoreComponent
 import com.bruce.core.di.scope.AppScope
+import com.bruce.imagepicker.di.module.ActivityBindingModule
+import com.bruce.imagepicker.di.module.FragmentBindingModule
+import com.bruce.imagepicker.di.providemodule.ProviderOtherModule
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule
-import test.com.bruce.di.module.ActivityBindingModule
-import test.com.bruce.di.module.FragmentBindingModule
-import test.com.bruce.di.providemodule.ProviderOtherModule
 
 /**
  * @Description

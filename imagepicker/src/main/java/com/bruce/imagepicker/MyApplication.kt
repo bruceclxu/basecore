@@ -1,8 +1,7 @@
 package com.bruce.imagepicker
 
 import com.bruce.core.BaseApplication
-import com.bruce.core.di.component.DaggerCoreComponent
-import test.com.bruce.di.component.DaggerAppComponent
+import com.bruce.imagepicker.di.component.DaggerAppComponent
 
 /**
  * @author bruce

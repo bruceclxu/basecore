@@ -1,4 +1,4 @@
-package test.com.bruce.di.providemodule
+package com.bruce.imagepicker.di.providemodule
 
 import androidx.lifecycle.MutableLiveData
 import dagger.Module

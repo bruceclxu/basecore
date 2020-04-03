@@ -1,4 +1,4 @@
-package test.com.bruce.di.module
+package com.bruce.imagepicker.di.module
 
 
 import com.bruce.core.di.scope.FragmentScope
